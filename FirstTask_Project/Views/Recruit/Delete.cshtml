@@ -1,0 +1,81 @@
+﻿@model FirstTask_Project.Models.RecruitmentRequest
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RecruitmentRequest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Company.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company.Name)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumOfOpening)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumOfOpening)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deadline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deadline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exp)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
