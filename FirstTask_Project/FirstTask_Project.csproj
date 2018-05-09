@@ -176,6 +176,14 @@
     <Compile Include="Migrations\201805091116289_modifiedrecuit1.Designer.cs">
       <DependentUpon>201805091116289_modifiedrecuit1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805091316184_modifiednew.cs" />
+    <Compile Include="Migrations\201805091316184_modifiednew.Designer.cs">
+      <DependentUpon>201805091316184_modifiednew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805091326488_p2S_remove_exp.cs" />
+    <Compile Include="Migrations\201805091326488_p2S_remove_exp.Designer.cs">
+      <DependentUpon>201805091326488_p2S_remove_exp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CheckBoxViewModel.cs" />
     <Compile Include="Models\Company.cs" />
@@ -185,6 +193,7 @@
     <Compile Include="Models\PersonsViewModel.cs" />
     <Compile Include="Models\PersonToSkill.cs" />
     <Compile Include="Models\RecruitmentRequest.cs" />
+    <Compile Include="Models\RecruitSkill.cs" />
     <Compile Include="Models\Skill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -246,6 +255,7 @@
     <Content Include="Views\Recruit\Details.cshtml" />
     <Content Include="Views\Recruit\Edit.cshtml" />
     <Content Include="Views\Recruit\Index.cshtml" />
+    <Content Include="Views\Recruit\SkillMatch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -267,6 +277,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805091116289_modifiedrecuit1.resx">
       <DependentUpon>201805091116289_modifiedrecuit1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805091316184_modifiednew.resx">
+      <DependentUpon>201805091316184_modifiednew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805091326488_p2S_remove_exp.resx">
+      <DependentUpon>201805091326488_p2S_remove_exp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

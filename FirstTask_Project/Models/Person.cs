@@ -10,7 +10,7 @@ namespace FirstTask_Project.Models
         public int PersonId { get; set; }
         public string Name { get; set; }
         public Experience Experience { get; set; }
-        public int ExpId { get; set; }
+        
 
         public virtual ICollection<PersonToSkill> PersonToSkills { get; set; }
     }

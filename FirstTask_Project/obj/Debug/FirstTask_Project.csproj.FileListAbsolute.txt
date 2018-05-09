@@ -59,3 +59,5 @@ c:\users\maharjan\documents\visual studio 2015\Projects\FirstTask_Project\FirstT
 c:\users\maharjan\documents\visual studio 2015\Projects\FirstTask_Project\FirstTask_Project\obj\Debug\FirstTask_Project.csproj.GenerateResource.Cache
 c:\users\maharjan\documents\visual studio 2015\Projects\FirstTask_Project\FirstTask_Project\obj\Debug\FirstTask_Project.Migrations.modifiedrecuit.resources
 c:\users\maharjan\documents\visual studio 2015\Projects\FirstTask_Project\FirstTask_Project\obj\Debug\FirstTask_Project.Migrations.modifiedrecuit1.resources
+c:\users\maharjan\documents\visual studio 2015\Projects\FirstTask_Project\FirstTask_Project\obj\Debug\FirstTask_Project.Migrations.modifiednew.resources
+c:\users\maharjan\documents\visual studio 2015\Projects\FirstTask_Project\FirstTask_Project\obj\Debug\FirstTask_Project.Migrations.p2S_remove_exp.resources
