@@ -15,9 +15,22 @@ namespace FirstTask_Project.Controllers
         private MyDbContext db = new MyDbContext();
 
         // GET: Person
-        public ActionResult Index()
+        public ActionResult Index(string searchBy,string search)
         {
-            return View(db.Persons.ToList());
+            if (searchBy == "Gender")
+            {
+                return View(db.Persons.Where(x => x.Gender == search || search == null).ToList());
+            }
+            else if (searchBy == "Name")
+            {
+                return View(db.Persons.Where(x => x.Name.StartsWith(search) || search == null).ToList());
+            }
+            else
+            {
+                return View();
+            }
+           
+
         }
 
         // GET: Person/Details/5
@@ -67,7 +80,7 @@ namespace FirstTask_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PersonId,Name,Experience")] Person person)
+        public ActionResult Create([Bind(Include = "PersonId,Name,Experience,Gender,Contactno,Email,ExpYear")] Person person)
         {
             if (ModelState.IsValid)
             {
@@ -172,6 +185,7 @@ namespace FirstTask_Project.Controllers
             return RedirectToAction("Index");
         }
 
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)

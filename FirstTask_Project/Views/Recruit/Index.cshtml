@@ -64,7 +64,7 @@
             @Html.ActionLink("Edit", "Edit", new { id=item.RecruitId }) |
             @Html.ActionLink("Details", "Details", new { id=item.RecruitId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.RecruitId }) |
-            @Html.ActionLink("DB", "SkillMatch")
+            @Html.ActionLink("Search in DB", "SkillMatch", new { id = item.RecruitId })
         </td>
     </tr>
 }

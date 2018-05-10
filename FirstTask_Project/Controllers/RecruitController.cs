@@ -121,12 +121,7 @@ namespace FirstTask_Project.Controllers
         }
 
         // GET: Person/Details/5
-        public ActionResult SkillMatch()
-        {
-            var recruitmentRequests = db.RecruitmentRequests.Include(r => r.Company);
-            return View(recruitmentRequests.ToList());
-        }
-
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)
