@@ -192,6 +192,10 @@
     <Compile Include="Migrations\201805101323433_ChangeinPerson1.Designer.cs">
       <DependentUpon>201805101323433_ChangeinPerson1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805111151107_updateclasscompany.cs" />
+    <Compile Include="Migrations\201805111151107_updateclasscompany.Designer.cs">
+      <DependentUpon>201805111151107_updateclasscompany.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CheckBoxViewModel.cs" />
     <Compile Include="Models\Company.cs" />
@@ -297,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805101323433_ChangeinPerson1.resx">
       <DependentUpon>201805101323433_ChangeinPerson1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805111151107_updateclasscompany.resx">
+      <DependentUpon>201805111151107_updateclasscompany.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

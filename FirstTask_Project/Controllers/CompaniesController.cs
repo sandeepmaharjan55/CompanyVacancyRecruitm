@@ -46,7 +46,7 @@ namespace FirstTask_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CompanyId,Name")] Company company)
+        public ActionResult Create([Bind(Include = "CompanyId,Name,Email,Phoneno,ContactPerson,CompanyURL,Logo,FacebookURL")] Company company)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace FirstTask_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CompanyId,Name")] Company company)
+        public ActionResult Edit([Bind(Include = "CompanyId,Name,Email,Phoneno,ContactPerson,CompanyURL,Logo,FacebookURL")] Company company)
         {
             if (ModelState.IsValid)
             {
