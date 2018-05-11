@@ -3,6 +3,14 @@
 @{
     ViewBag.Title = "Index";
 }
+
+
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 @using (Html.BeginForm("Index", "Person", FormMethod.Get))
 {
     <b>Search By:</b>@Html.RadioButton("searchBy", "Name")<text>Name</text>
@@ -10,13 +18,6 @@
     @Html.RadioButton("searchBy", "Skill")<text>Skill</text><br />
     @Html.TextBox("search")<input type="submit" value="Search" />
 }
-
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -63,3 +64,4 @@
 }
 
 </table>
+<p>@Html.ActionLink("Back to List", "Index")</p>

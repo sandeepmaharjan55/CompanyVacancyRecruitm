@@ -15,9 +15,17 @@ namespace FirstTask_Project.Controllers
         private MyDbContext db = new MyDbContext();
 
         // GET: Companies
-        public ActionResult Index()
+        public ActionResult Index(string searchBy, string search)
         {
-            return View(db.Companies.ToList());
+            if (searchBy == "Company")
+            {
+                return View(db.Companies.Where(x => x.Name.StartsWith(search) || search == null).ToList());
+            }
+            else
+            {
+                return View(db.Companies.Where(x => x.ContactPerson.StartsWith(search) || search == null).ToList());
+            }
+            
         }
 
         // GET: Companies/Details/5

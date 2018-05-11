@@ -21,15 +21,11 @@ namespace FirstTask_Project.Controllers
             {
                 return View(db.Persons.Where(x => x.Gender == search || search == null).ToList());
             }
-            else if (searchBy == "Name")
+            else
             {
                 return View(db.Persons.Where(x => x.Name.StartsWith(search) || search == null).ToList());
             }
-            else
-            {
-                return View(db.Persons.ToList());
-            }
-           
+            
 
         }
 

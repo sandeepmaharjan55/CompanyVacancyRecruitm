@@ -15,10 +15,14 @@ namespace FirstTask_Project.Controllers
         private MyDbContext db = new MyDbContext();
 
         // GET: Recruit
-        public ActionResult Index()
+        public ActionResult Index( string search)
         {
-            var recruitmentRequests = db.RecruitmentRequests.Include(r => r.Company);
-            return View(recruitmentRequests.ToList());
+            
+            
+                return View(db.RecruitmentRequests.Include(r => r.Company).Where(x => x.Company.Name.StartsWith(search) || search == null).ToList());
+            
+            
+            
         }
 
         // GET: Recruit/Details/5
