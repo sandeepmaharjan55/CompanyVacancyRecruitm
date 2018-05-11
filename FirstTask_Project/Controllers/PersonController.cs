@@ -27,7 +27,7 @@ namespace FirstTask_Project.Controllers
             }
             else
             {
-                return View();
+                return View(db.Persons.ToList());
             }
            
 
@@ -185,7 +185,15 @@ namespace FirstTask_Project.Controllers
             return RedirectToAction("Index");
         }
 
-        
+
+        public ActionResult trythis()
+        {
+            
+            return View(db.Persons.ToList());
+
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
