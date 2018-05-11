@@ -115,6 +115,12 @@ namespace FirstTask_Project.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult ReqLFA(int id)
+        {
+           
+            return RedirectToAction("Index");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

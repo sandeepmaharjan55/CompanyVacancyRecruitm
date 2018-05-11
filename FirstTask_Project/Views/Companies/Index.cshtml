@@ -5,7 +5,13 @@
 }
 
 <h2>Index</h2>
-
+@using (Html.BeginForm("Index", "Person", FormMethod.Get))
+{
+    <b>Search By:</b>@Html.RadioButton("searchBy", "Name")<text>Name</text>
+    @Html.RadioButton("searchBy", "Gender")<text>Gender</text>
+    @Html.RadioButton("searchBy", "Skill")<text>Skill</text><br />
+    @Html.TextBox("search")<input type="submit" value="Search" />
+}
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -53,7 +59,8 @@
             @Html.DisplayFor(modelItem => item.CompanyURL)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Logo)
+            <img height="50" width="100" src="@Html.DisplayFor(modelItem => item.Logo)" />
+          <!--  Html.DisplayFor(modelItem => item.Logo) -->
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FacebookURL)
@@ -61,7 +68,8 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CompanyId }) |
             @Html.ActionLink("Details", "Details", new { id=item.CompanyId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CompanyId })
+            @Html.ActionLink("Delete", "Delete", new { id=item.CompanyId }) |
+            <a href="@Url.Action("Create", "Recruit",new { id=item.CompanyId }) ">ReqLFA</a>
         </td>
     </tr>
 }

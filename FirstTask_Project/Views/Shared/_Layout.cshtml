@@ -22,7 +22,11 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Person", "Index", "Person")</li>
+                    <li>@Html.ActionLink("Companies", "Index", "Companies")</li>
+                    <li>@Html.ActionLink("Skills", "Index", "Skill")</li>
+                    <li>@Html.ActionLink("Recruit", "Index", "Recruit")</li>
+                   
                 </ul>
             </div>
         </div>
@@ -34,7 +38,9 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
+ @Styles.Render("~/Content/datepicker")
+@Scripts.Render("~/bundles/datePicker")
+  
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
