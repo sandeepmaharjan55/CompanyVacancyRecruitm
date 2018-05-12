@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FirstTask_Project.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace FirstTask_Project.Controllers
 {
@@ -15,19 +17,32 @@ namespace FirstTask_Project.Controllers
         private MyDbContext db = new MyDbContext();
 
         // GET: Companies
-        public ActionResult Index(string searchBy, string search)
+        public ActionResult Index(string q,string order)
         {
-            if (searchBy == "Company")
+            var name = from n in db.Companies select n;
+            if (q != null)
             {
-                return View(db.Companies.Where(x => x.Name.StartsWith(search) || search == null).ToList());
+                name = name.Where(n =>n.Name.Contains(q));
             }
-            else
+            switch (order)
             {
-                return View(db.Companies.Where(x => x.ContactPerson.StartsWith(search) || search == null).ToList());
+                case "name":
+                    name = name.OrderBy(n => n.Name);
+                    break;
+                case "Email":
+                    name = name.OrderBy(n => n.Email);
+                    break;
+                default:
+                    name = name.OrderBy(n => n.CompanyId);
+                    break;
             }
-            
-        }
+                return View(name.ToList());
 
+
+           
+           
+        }
+       
         // GET: Companies/Details/5
         public ActionResult Details(int? id)
         {

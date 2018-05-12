@@ -7,26 +7,29 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-
+<div class="pull-right">
 @using (Html.BeginForm("Index", "Companies", FormMethod.Get))
 {
-    <b>Search By:</b>@Html.RadioButton("searchBy", "ContactPerson")<text>ContactPerson</text>
-    @Html.RadioButton("searchBy", "Company")<text>Company</text>
-   <br />
-    @Html.TextBox("search")
+    @Html.TextBox("q", "", new { placeholder = "Search..." });
     
-        <input type="submit" value="Search"  />
+        <button type="submit" class="btn btn-primary"  >GO</button>
    
 }
+    </div>
 <br/>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
+        <a href="~/Companies?order=name">
+                Name
+    
+        </a>
+            </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
+            <a href="~/Companies?order=Email">
+                Email
+                </a>
+</th>
         <th>
             @Html.DisplayNameFor(model => model.Phoneno)
         </th>
@@ -83,3 +86,4 @@
 }
 
 </table>
+

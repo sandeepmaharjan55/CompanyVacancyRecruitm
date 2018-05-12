@@ -68,3 +68,7 @@ C:\Users\maharjan\Documents\Visual Studio 2015\Projects\FirstTask_Project\FirstT
 C:\Users\maharjan\Documents\Visual Studio 2015\Projects\FirstTask_Project\FirstTask_Project\obj\Debug\FirstTask_Project.Migrations.sendmail.resources
 C:\Users\maharjan\Documents\Visual Studio 2015\Projects\FirstTask_Project\FirstTask_Project\obj\Debug\FirstTask_Project.Migrations.companyName.resources
 C:\Users\maharjan\Documents\Visual Studio 2015\Projects\FirstTask_Project\FirstTask_Project\obj\Debug\FirstTask_Project.Migrations.companyNamedeleted.resources
+C:\Users\maharjan\Documents\Visual Studio 2015\Projects\FirstTask_Project\FirstTask_Project\bin\PagedList.dll
+C:\Users\maharjan\Documents\Visual Studio 2015\Projects\FirstTask_Project\FirstTask_Project\bin\PagedList.Mvc.dll
+C:\Users\maharjan\Documents\Visual Studio 2015\Projects\FirstTask_Project\FirstTask_Project\bin\PagedList.xml
+C:\Users\maharjan\Documents\Visual Studio 2015\Projects\FirstTask_Project\FirstTask_Project\bin\PagedList.Mvc.xml
