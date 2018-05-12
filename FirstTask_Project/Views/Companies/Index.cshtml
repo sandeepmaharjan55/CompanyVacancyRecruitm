@@ -69,10 +69,11 @@
             @Html.ActionLink("Edit", "Edit", new { id=item.CompanyId }) |
             @Html.ActionLink("Details", "Details", new { id=item.CompanyId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.CompanyId }) |
-            <a href="@Url.Action("Create", "Recruit",new { id=item.CompanyId }) ">ReqLFA</a>
+            
+            <a href="@Url.Action("sendmail","Recruit") ">ReqLFA</a>
+        
         </td>
     </tr>
 }
 
 </table>
-<p>@Html.ActionLink("Back to List", "Index")</p>

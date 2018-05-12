@@ -64,3 +64,5 @@ c:\users\maharjan\documents\visual studio 2015\Projects\FirstTask_Project\FirstT
 C:\Users\maharjan\documents\visual studio 2015\Projects\FirstTask_Project\FirstTask_Project\obj\Debug\FirstTask_Project.Migrations.ChangeinPerson.resources
 C:\Users\maharjan\documents\visual studio 2015\Projects\FirstTask_Project\FirstTask_Project\obj\Debug\FirstTask_Project.Migrations.ChangeinPerson1.resources
 C:\Users\maharjan\Documents\Visual Studio 2015\Projects\FirstTask_Project\FirstTask_Project\obj\Debug\FirstTask_Project.Migrations.updateclasscompany.resources
+C:\Users\maharjan\Documents\Visual Studio 2015\Projects\FirstTask_Project\FirstTask_Project\obj\Debug\FirstTask_Project.Migrations.keyCompanyId.resources
+C:\Users\maharjan\Documents\Visual Studio 2015\Projects\FirstTask_Project\FirstTask_Project\obj\Debug\FirstTask_Project.Migrations.sendmail.resources
