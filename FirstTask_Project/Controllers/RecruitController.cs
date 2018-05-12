@@ -221,17 +221,22 @@ namespace FirstTask_Project.Controllers
 
         public ActionResult SkillMatch(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            RecruitmentRequest recruitmentRequest = db.RecruitmentRequests.Find(id);
-            if (recruitmentRequest == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "Name", recruitmentRequest.CompanyId);
-            return View(recruitmentRequest);
+            var rat = db.RecruitmentRequests.Find(id);
+            string z = rat.Description;
+
+
+            var er = db.PersonToSkills.Find(id++);
+            var skill = db.PersonToSkills.Include(r => r.Skill);
+            var s = skill.ToString();
+            var x = db.Skills.ToArray();
+            
+              skill.ToList();
+            
+            
+                return View(skill.ToList());
+         
+
+            
         }
 
         // GET: Person/Details/5
