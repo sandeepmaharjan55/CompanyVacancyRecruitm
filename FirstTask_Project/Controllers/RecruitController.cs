@@ -223,13 +223,16 @@ namespace FirstTask_Project.Controllers
         {
             var rat = db.RecruitmentRequests.Find(id);
             string z = rat.Description;
+            var d = db.PersonToSkills;
+
+            var name = from n in db.PersonToSkills.Include(r => r.Skill) select n;
+
+            name.Equals.z;
+            
 
 
-            
-            
-              
-            
-            
+
+
                 return View(db.RecruitmentRequests.ToList());
          
 
