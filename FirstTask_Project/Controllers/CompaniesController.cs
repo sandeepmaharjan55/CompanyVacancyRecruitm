@@ -17,12 +17,12 @@ namespace FirstTask_Project.Controllers
         private MyDbContext db = new MyDbContext();
 
         // GET: Companies
-        public ActionResult Index(string q,string order)
+        public ActionResult Index(string q, string order)
         {
             var name = from n in db.Companies select n;
             if (q != null)
             {
-                name = name.Where(n =>n.Name.Contains(q));
+                name = name.Where(n => n.Name.Contains(q));
             }
             switch (order)
             {
@@ -36,13 +36,9 @@ namespace FirstTask_Project.Controllers
                     name = name.OrderBy(n => n.CompanyId);
                     break;
             }
-                return View(name.ToList());
-
-
-           
-           
+            return View(name.ToList());
         }
-       
+
         // GET: Companies/Details/5
         public ActionResult Details(int? id)
         {

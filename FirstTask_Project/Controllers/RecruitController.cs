@@ -16,14 +16,38 @@ namespace FirstTask_Project.Controllers
         private MyDbContext db = new MyDbContext();
 
         // GET: Recruit
-        public ActionResult Index( string search)
+        public ActionResult Index(string q, string order)
         {
-            
-            
-                return View(db.RecruitmentRequests.Include(r => r.Company).Where(x => x.Company.Name.StartsWith(search) || search == null).ToList());
-            
-            
-            
+            var name = from n in db.RecruitmentRequests.Include(r => r.Company) select n;
+            if (q != null)
+            {
+                name = name.Where(n => n.Company.Name.Contains(q));
+            }
+            switch (order)
+            {
+                case "name":
+                    name = name.OrderBy(n => n.Company.Name);
+                    break;
+                case "title":
+                    name = name.OrderBy(n => n.Title);
+                    break;
+                case "requestdate":
+                    name = name.OrderBy(n => n.RequestDate);
+                    break;
+                case "numofopen":
+                    name = name.OrderBy(n => n.NumOfOpening);
+                    break;
+                case "deadline":
+                    name = name.OrderBy(n => n.Deadline);
+                    break;
+                case "exp":
+                    name = name.OrderBy(n => n.Exp);
+                    break;
+                default:
+                    name = name.OrderBy(n => n.CompanyId);
+                    break;
+            }
+            return View(name.ToList());
         }
 
         // GET: Recruit/Details/5
