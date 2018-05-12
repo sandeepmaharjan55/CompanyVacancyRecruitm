@@ -15,18 +15,33 @@ namespace FirstTask_Project.Controllers
         private MyDbContext db = new MyDbContext();
 
         // GET: Person
-        public ActionResult Index(string searchBy,string search)
+        public ActionResult Index(string q, string order)
         {
-            if (searchBy == "Gender")
+            var name = from n in db.Persons.Include(r => r.Experience) select n;
+            if (q != null)
             {
-                return View(db.Persons.Where(x => x.Gender == search || search == null).ToList());
+                name = name.Where(n => n.Name.Contains(q));
             }
-            else
+            switch (order)
             {
-                return View(db.Persons.Where(x => x.Name.StartsWith(search) || search == null).ToList());
+                case "name":
+                    name = name.OrderBy(n => n.Name);
+                    break;
+                case "gender":
+                    name = name.OrderBy(n => n.Gender);
+                    break;
+                case "email":
+                    name = name.OrderBy(n => n.Email);
+                    break;
+                case "Exp":
+                    name = name.OrderBy(n => n.Experience.ExpYear);
+                    break;
+               
+                default:
+                    name = name.OrderBy(n => n.PersonId);
+                    break;
             }
-            
-
+            return View(name.ToList());
         }
 
         // GET: Person/Details/5

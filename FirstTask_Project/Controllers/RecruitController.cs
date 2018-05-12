@@ -225,15 +225,12 @@ namespace FirstTask_Project.Controllers
             string z = rat.Description;
 
 
-            var er = db.PersonToSkills.Find(id++);
-            var skill = db.PersonToSkills.Include(r => r.Skill);
-            var s = skill.ToString();
-            var x = db.Skills.ToArray();
-            
-              skill.ToList();
             
             
-                return View(skill.ToList());
+              
+            
+            
+                return View(db.RecruitmentRequests.ToList());
          
 
             

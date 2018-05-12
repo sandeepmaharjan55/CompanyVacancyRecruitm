@@ -11,29 +11,40 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-@using (Html.BeginForm("Index", "Person", FormMethod.Get))
-{
-    <b>Search By:</b>@Html.RadioButton("searchBy", "Name")<text>Name</text>
-    @Html.RadioButton("searchBy", "Gender")<text>Gender</text>
-    @Html.RadioButton("searchBy", "Skill")<text>Skill</text><br />
-    @Html.TextBox("search")<input type="submit" value="Search" />
-}
+<div class="pull-right">
+    @using (Html.BeginForm("Index", "Person", FormMethod.Get))
+    {
+        @Html.TextBox("q", "", new { placeholder = "Search..." });
+
+        <button type="submit" class="btn btn-primary">GO</button>
+
+    }
+</div>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            <a href="~/Person?order=name">
+               Name
+            </a>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gender)
+            <a href="~/Person?order=gender">
+                Gender
+            </a>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Contactno)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            <a href="~/Person?order=email">
+                Email
+            </a>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Experience.ExpYear)
+            <a href="~/Person?order=Exp">
+                ExpYear
+            </a>
         </th>
         <th></th>
     </tr>
