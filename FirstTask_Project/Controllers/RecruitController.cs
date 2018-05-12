@@ -89,7 +89,7 @@ namespace FirstTask_Project.Controllers
             {
                
                 MailMessage mail = new MailMessage();
-                mail.To.Add(_objModelMail.To);
+                mail.To.Add("sandeepmaharjan55@gmail.com");
                 mail.From = new MailAddress("sandeepmaharjan94@gmail.com");
                 mail.Subject = _objModelMail.Title;
                 string Body = _objModelMail.Description;
@@ -115,9 +115,10 @@ namespace FirstTask_Project.Controllers
                     CompanyId = _objModelMail.CompanyId,
                     Title = _objModelMail.Title,
                     Description = _objModelMail.Description,
-                    RequestDate = DateTime.Now,
+                    RequestDate = _objModelMail.RequestDate,
                     NumOfOpening = _objModelMail.NumOfOpening,
-                        Deadline = DateTime.Now,
+                        Deadline =_objModelMail.Deadline,
+                        Exp=_objModelMail.Exp
                 
                 });
                 db.SaveChanges();

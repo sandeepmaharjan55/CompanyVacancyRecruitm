@@ -71,10 +71,10 @@
             @Html.DisplayFor(modelItem => item.Exp)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RecruitId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RecruitId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RecruitId }) |
-            @Html.ActionLink("Search in DB", "SkillMatch", new { id = item.RecruitId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.RecruitId }, new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RecruitId }, new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RecruitId }, new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Search in DB", "SkillMatch", new { id = item.RecruitId }, new { @class = "btn btn-primary" })
         </td>
     </tr>
 }

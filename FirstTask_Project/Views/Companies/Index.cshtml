@@ -3,18 +3,22 @@
 @{
     ViewBag.Title = "Index";
 }
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<h2>Index</h2>
+
 @using (Html.BeginForm("Index", "Companies", FormMethod.Get))
 {
     <b>Search By:</b>@Html.RadioButton("searchBy", "ContactPerson")<text>ContactPerson</text>
     @Html.RadioButton("searchBy", "Company")<text>Company</text>
    <br />
-    @Html.TextBox("search")<input type="submit" value="Search" />
+    @Html.TextBox("search")
+    
+        <input type="submit" value="Search"  />
+   
 }
-
+<br/>
 <table class="table">
     <tr>
         <th>
@@ -56,21 +60,23 @@
             @Html.DisplayFor(modelItem => item.ContactPerson)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CompanyURL)
+            <a href="@item.CompanyURL">@item.CompanyURL</a>
+           
         </td>
         <td>
             <img height="50" width="100" src="@Html.DisplayFor(modelItem => item.Logo)" />
           <!--  Html.DisplayFor(modelItem => item.Logo) -->
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FacebookURL)
+            <a href="@item.FacebookURL">@item.FacebookURL</a>
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CompanyId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CompanyId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CompanyId }) |
             
-            <a href="@Url.Action("sendmail","Recruit") ">ReqLFA</a>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CompanyId}, new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CompanyId }, new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CompanyId }, new { @class = "btn btn-default" }) |
+            
+            <a href="@Url.Action("sendmail","Recruit")" class="btn btn-primary">ReqLFA</a>
         
         </td>
     </tr>
