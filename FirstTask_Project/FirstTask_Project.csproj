@@ -204,6 +204,14 @@
     <Compile Include="Migrations\201805120543560_sendmail.Designer.cs">
       <DependentUpon>201805120543560_sendmail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805121039510_companyName.cs" />
+    <Compile Include="Migrations\201805121039510_companyName.Designer.cs">
+      <DependentUpon>201805121039510_companyName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805121047408_companyNamedeleted.cs" />
+    <Compile Include="Migrations\201805121047408_companyNamedeleted.Designer.cs">
+      <DependentUpon>201805121047408_companyNamedeleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CheckBoxViewModel.cs" />
     <Compile Include="Models\Company.cs" />
@@ -367,6 +375,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805120543560_sendmail.resx">
       <DependentUpon>201805120543560_sendmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805121039510_companyName.resx">
+      <DependentUpon>201805121039510_companyName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805121047408_companyNamedeleted.resx">
+      <DependentUpon>201805121047408_companyNamedeleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

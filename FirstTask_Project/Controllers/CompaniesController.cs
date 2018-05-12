@@ -59,6 +59,7 @@ namespace FirstTask_Project.Controllers
             if (ModelState.IsValid)
             {
                 db.Companies.Add(company);
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
