@@ -219,7 +219,7 @@ namespace FirstTask_Project.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult SkillMatch(int? id, string q)
+        public ActionResult SkillMatch(int? id)
         {
 
             var rat = db.RecruitmentRequests.Find(id);
