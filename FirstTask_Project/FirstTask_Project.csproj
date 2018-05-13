@@ -220,6 +220,10 @@
     <Compile Include="Migrations\201805121047408_companyNamedeleted.Designer.cs">
       <DependentUpon>201805121047408_companyNamedeleted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805130539031_skildeletfromrecruitreq.cs" />
+    <Compile Include="Migrations\201805130539031_skildeletfromrecruitreq.Designer.cs">
+      <DependentUpon>201805130539031_skildeletfromrecruitreq.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CheckBoxViewModel.cs" />
     <Compile Include="Models\Company.cs" />
@@ -390,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805121047408_companyNamedeleted.resx">
       <DependentUpon>201805121047408_companyNamedeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805130539031_skildeletfromrecruitreq.resx">
+      <DependentUpon>201805130539031_skildeletfromrecruitreq.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

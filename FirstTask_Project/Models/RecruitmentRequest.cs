@@ -19,6 +19,7 @@ namespace FirstTask_Project.Models
         public int NumOfOpening { get; set; }
         public DateTime? Deadline { get; set; }   
         public int Exp { get; set; }
+        
         public string From { get; set; }
         public string To { get; set; }
         public string Subject { get; set; }

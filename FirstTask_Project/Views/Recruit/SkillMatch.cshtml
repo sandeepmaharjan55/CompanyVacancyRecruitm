@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FirstTask_Project.Models.RecruitSkill>
+﻿@model IEnumerable<FirstTask_Project.Models.PersonToSkill>
 
 
 
@@ -8,19 +8,13 @@
 <table class="table">
     <tr>
         
-
+        <th>Person</th>
        
-        <th>
-            
-                Skill
- 
-        </th>
-        <th>
-            
-                Description
-
-           
-        </th>
+        <th>Skill </th>
+        <th>Email </th>
+        <th>Experience </th>
+        <th>ContactNum </th>
+    
        
         <th></th>
     </tr>
@@ -29,19 +23,23 @@
     {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Person.Name)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Skill.Skills)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Person.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Person.Experience.ExpYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Person.Contactno)
+            </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.RecruitmentRequest.Description)
-            </td>
-            
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.RecruitId }, new { @class = "btn btn-default" }) |
-                @Html.ActionLink("Details", "Details", new { id = item.RecruitId }, new { @class = "btn btn-default" }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.RecruitId }, new { @class = "btn btn-default" }) |
-                @Html.ActionLink("Search in DB", "SkillMatch", new { id = item.RecruitId }, new { @class = "btn btn-primary" })
-            </td>
+           
+          
         </tr>
     }
 
