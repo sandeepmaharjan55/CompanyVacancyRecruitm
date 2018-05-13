@@ -221,24 +221,14 @@ namespace FirstTask_Project.Controllers
 
         public ActionResult SkillMatch(int? id)
         {
-
+           
             var rat = db.RecruitmentRequests.Find(id);
             string z = rat.Description;
 
             var persontoskill = db.Skills
                        .Where(c => c.Skills == z)
                        .SelectMany(c => c.PersonToSkills);
-
-
-
-
-
-
-
-
-
-          
-                return View(persontoskill.ToList());
+                return View(persontoskill.Include(r => r.Person.Experience).ToList());
             
         }
 
