@@ -2,22 +2,29 @@
 
 
 
-<h2>Edit</h2>
 
 
+<div class="pull-right">
+    @using (Html.BeginForm("SkillMatch", "Recruit", FormMethod.Get))
+    {
+        @Html.TextBox("q", "", new { placeholder = "Search..." });
+
+        <button type="submit" class="btn btn-primary">GO</button>
+
+    }
+</div>
 <table class="table">
     <tr>
-        
-        <th>Person</th>
        
-        <th>Skill </th>
-        <th>Email </th>
-        <th>Experience </th>
-        <th>ContactNum </th>
-    
-       
-        <th></th>
-    </tr>
+            <th><a href="~/Recruit?order=name">Person</a></th>
+            <th><a href="~/Recruit?order=skill">Skill </a></th>
+            <th><a href="~/Recruit?order=email">Email </a></th>
+            <th><a href="~/Recruit?order=exp">Experience</a> </th>
+            <th>ContactNum </th>
+
+
+            <th></th>
+</tr>
 
     @foreach (var item in Model)
     {

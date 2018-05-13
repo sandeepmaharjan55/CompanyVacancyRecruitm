@@ -219,9 +219,44 @@ namespace FirstTask_Project.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult SkillMatch(int? id)
+        public ActionResult SkillMatch(int? id, string q, string order)
         {
-            
+
+
+            var name = from n in db.PersonToSkills.Include(r => r.Person).Include(r=>r.Skill) select n;
+            if (q != null)
+            {
+                name = name.Where(n => n.Person.Name.Contains(q));
+            }
+            switch (order)
+            {
+                case "name":
+                    name = name.OrderBy(n => n.Person.Name);
+                    break;
+                case "skill":
+                    name = name.OrderBy(n => n.Skill.Skills);
+                    break;
+                case "email":
+                    name = name.OrderBy(n => n.Person.Email);
+                    break;
+                case "exp":
+                    name = name.OrderBy(n => n.Person.Experience.ExpYear);
+                    break;
+                
+                default:
+                    name = name.OrderBy(n => n.PersonId);
+                    break;
+            }
+            return View(name.ToList());
+
+
+
+
+
+
+
+
+
             var rat = db.RecruitmentRequests.Find(id);
             string z = rat.Description;
             
