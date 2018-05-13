@@ -67,12 +67,12 @@
             @Html.DisplayFor(modelItem => item.Experience.ExpYear)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PersonId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PersonId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PersonId })
+            @Html.ActionLink("Edit", "Edit", "Person", new { id=item.PersonId }, new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Details", "Details", "Person", new { id=item.PersonId }, new { @class = "btn btn-default" }) |
+            @Html.ActionLink("Delete", "Delete", "Person", new { id=item.PersonId }, new { @class = "btn btn-default" })
         </td>
     </tr>
 }
 
 </table>
-<p>@Html.ActionLink("Back to List", "Index")</p>
+<p>@Html.ActionLink("Back to List", "Index","Person",new { @class = "btn btn-primary" })</p>
