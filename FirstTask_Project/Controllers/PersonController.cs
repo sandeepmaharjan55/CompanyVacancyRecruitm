@@ -205,12 +205,7 @@ namespace FirstTask_Project.Controllers
         }
 
 
-        public ActionResult trythis()
-        {
-            
-            return View(db.Persons.ToList());
-
-        }
+        
 
 
         protected override void Dispose(bool disposing)

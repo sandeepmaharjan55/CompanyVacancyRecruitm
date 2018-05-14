@@ -344,7 +344,6 @@
     <Content Include="Views\Recruit\Details.cshtml" />
     <Content Include="Views\Recruit\Edit.cshtml" />
     <Content Include="Views\Recruit\Index.cshtml" />
-    <Content Include="Views\Person\trythis.cshtml" />
     <Content Include="Views\Recruit\SkillMatch.cshtml" />
     <Content Include="Views\Recruit\sendmail.cshtml" />
     <Content Include="Views\Recruit\sendmailtoall.cshtml" />
