@@ -159,11 +159,71 @@ namespace FirstTask_Project.Controllers
                 return View();
             }
         }
-    
+
+        public ActionResult sendmailtoall()
+        {
+            ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "Name");
+            return View();
+        }
+        [HttpPost]
+        public ViewResult sendmailtoall(RecruitmentRequest _objModelMail)
+        {
+
+            ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "Name", _objModelMail.CompanyId);
+
+            if (ModelState.IsValid)
+            {
+                // sandeepmaharjan55 @gmail.com
+                MailMessage mail = new MailMessage();
+
+                mail.To.Add("sandeepmaharjan55@gmail.com");
+
+                mail.From = new MailAddress("sandeepmaharjan94@gmail.com");
+                mail.Subject = _objModelMail.Title;
+                string Body = _objModelMail.Description;
+                mail.Body = Body;
+                mail.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential("sandeepmaharjan94@gmail.com", "Kathmandu1111");// Enter seders User name and password
+                smtp.EnableSsl = true;
+
+                mail.Headers.Add("Disposition-Notification-To", "sandeepmaharjan94@gmail.com");
+                mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess;
+
+                mail.ReplyTo = mail.From;
+
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(mail);
+
+                db.RecruitmentRequests.Add(new RecruitmentRequest
+                {
+                    CompanyId = _objModelMail.CompanyId,
+                    Title = _objModelMail.Title,
+                    Description = _objModelMail.Description,
+                    RequestDate = _objModelMail.RequestDate,
+                    NumOfOpening = _objModelMail.NumOfOpening,
+                    Deadline = _objModelMail.Deadline,
+                    Exp = _objModelMail.Exp
+
+                });
+                db.SaveChanges();
 
 
-    // GET: Recruit/Edit/5
-    public ActionResult Edit(int? id)
+                return View(_objModelMail);
+
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+
+        // GET: Recruit/Edit/5
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {

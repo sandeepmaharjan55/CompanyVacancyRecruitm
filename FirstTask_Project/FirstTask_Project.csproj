@@ -347,6 +347,7 @@
     <Content Include="Views\Person\trythis.cshtml" />
     <Content Include="Views\Recruit\SkillMatch.cshtml" />
     <Content Include="Views\Recruit\sendmail.cshtml" />
+    <Content Include="Views\Recruit\sendmailtoall.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

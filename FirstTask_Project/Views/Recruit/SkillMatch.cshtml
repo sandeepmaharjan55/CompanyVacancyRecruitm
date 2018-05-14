@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<FirstTask_Project.Models.PersonToSkill>
 
 
+<br/>
+<div class="pull-right">
+    <p>@Html.ActionLink("Send Mail To All", "sendmailtoall", "Recruit", new { @class = "btn btn-primary" })</p>
+    </div>
+    <table class="table">
+        <tr>
 
-
-
-
-<table class="table">
-    <tr>
-       
             <th>Person</th>
             <th>Skill </th>
             <th>Email</th>
@@ -16,32 +16,32 @@
 
 
             <th></th>
-</tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Person.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Skill.Skills)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Person.Email)
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.Person.Experience.ExpYear)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Person.Contactno)
-            </td>
-
-           
-          
         </tr>
-    }
 
-</table>
-<p>@Html.ActionLink("Back to List", "Index", "Recruit", new { @class = "btn btn-primary" })</p>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Person.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Skill.Skills)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Person.Email)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Person.Experience.ExpYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Person.Contactno)
+                </td>
+
+
+
+            </tr>
+        }
+
+    </table>
+    <p>@Html.ActionLink("Back to List", "Index", "Recruit", new { @class = "btn btn-primary" })</p>
