@@ -284,7 +284,7 @@ namespace FirstTask_Project.Controllers
 
         public ActionResult SkillMatch(int? id)
         {
-           
+            
             var rat = db.RecruitmentRequests.Find(id);
             string z = rat.Description;
 
@@ -292,8 +292,9 @@ namespace FirstTask_Project.Controllers
                        .Where(c => c.Skills == z)
                        .SelectMany(c => c.PersonToSkills);
                 return View(persontoskill.Include(r => r.Person.Experience).ToList());
-           
             
+
+
         }
 
         // GET: Person/Details/5
