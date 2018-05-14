@@ -174,47 +174,51 @@ namespace FirstTask_Project.Controllers
 
             if (ModelState.IsValid)
             {
-                // sandeepmaharjan55 @gmail.com
-                MailMessage mail = new MailMessage();
-               // mail.To.Add(new MailAddress(_objModelMail.To));
-                mail.To.Add("sandeepmaharjan55@gmail.com");
 
-                mail.From = new MailAddress("sandeepmaharjan94@gmail.com");
-                mail.Subject = _objModelMail.Title;
-                string Body = " Announcing vacancy in " +_objModelMail.Description + " with vacancy seat of "+_objModelMail.NumOfOpening + " with Experience of year " +_objModelMail.Exp + " requested on date "+ _objModelMail.RequestDate + " and the deadline is " + _objModelMail.Deadline+". For further details contact";
-                mail.Body = Body;
-                mail.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new System.Net.NetworkCredential("sandeepmaharjan94@gmail.com", "Kathmandu1111");// Enter seders User name and password
-                smtp.EnableSsl = true;
-
-                mail.Headers.Add("Disposition-Notification-To", "sandeepmaharjan94@gmail.com");
-                mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess;
-
-                mail.ReplyTo = mail.From;
-
-                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtp.Send(mail);
-
-                db.RecruitmentRequests.Add(new RecruitmentRequest
+                for (int i = 1; i < 5; i++)
                 {
-                    CompanyId = _objModelMail.CompanyId,
-                    Title = _objModelMail.Title,
-                    Description = _objModelMail.Description,
-                    RequestDate = _objModelMail.RequestDate,
-                    NumOfOpening = _objModelMail.NumOfOpening,
-                    Deadline = _objModelMail.Deadline,
-                    Exp = _objModelMail.Exp
-
-                });
-                db.SaveChanges();
+                    // sandeepmaharjan55 @gmail.com
+                    MailMessage mail = new MailMessage();
+                    // mail.To.Add(new MailAddress(_objModelMail.To));
+                    mail.To.Add("sandeepmaharjan55@gmail.com");
 
 
+                    mail.From = new MailAddress("sandeepmaharjan94@gmail.com");
+                    mail.Subject = _objModelMail.Title;
+                    string Body = " Announcing vacancy in " + _objModelMail.Description + " with vacancy seat of " + _objModelMail.NumOfOpening + " with Experience of year " + _objModelMail.Exp + " requested on date " + _objModelMail.RequestDate + " and the deadline is " + _objModelMail.Deadline + ". For further details contact";
+                    mail.Body = Body;
+                    mail.IsBodyHtml = true;
+                    SmtpClient smtp = new SmtpClient();
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.Port = 587;
+                    smtp.UseDefaultCredentials = false;
+                    smtp.Credentials = new System.Net.NetworkCredential("sandeepmaharjan94@gmail.com", "Kathmandu1111");// Enter seders User name and password
+                    smtp.EnableSsl = true;
+
+                    mail.Headers.Add("Disposition-Notification-To", "sandeepmaharjan94@gmail.com");
+                    mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess;
+
+                    mail.ReplyTo = mail.From;
+
+                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtp.Send(mail);
+
+                    db.RecruitmentRequests.Add(new RecruitmentRequest
+                    {
+                        CompanyId = _objModelMail.CompanyId,
+                        Title = _objModelMail.Title,
+                        Description = _objModelMail.Description,
+                        RequestDate = _objModelMail.RequestDate,
+                        NumOfOpening = _objModelMail.NumOfOpening,
+                        Deadline = _objModelMail.Deadline,
+                        Exp = _objModelMail.Exp
+
+                    });
+                    db.SaveChanges();
+
+                }
                 return View(_objModelMail);
-
+                
             }
             else
             {
@@ -284,7 +288,10 @@ namespace FirstTask_Project.Controllers
 
         public ActionResult SkillMatch(int? id)
         {
-            
+           
+
+
+
             var rat = db.RecruitmentRequests.Find(id);
             string z = rat.Description;
 
@@ -292,7 +299,8 @@ namespace FirstTask_Project.Controllers
                        .Where(c => c.Skills == z)
                        .SelectMany(c => c.PersonToSkills);
                 return View(persontoskill.Include(r => r.Person.Experience).ToList());
-            
+           
+
 
 
         }
