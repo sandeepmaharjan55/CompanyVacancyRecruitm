@@ -11,6 +11,8 @@ namespace FirstTask_Project.Models
         public string Name { get; set; }
         public Experience Experience { get; set; }
         public int ExpId { get; set; }
+        public int Contactno { get; set; }
+        public string Email { get; set; }
         public List<CheckBoxViewModel> Skills { get; set; }
     }
 }

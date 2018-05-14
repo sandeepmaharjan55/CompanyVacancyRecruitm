@@ -18,6 +18,7 @@ namespace FirstTask_Project.Controllers
         // GET: Recruit
         public ActionResult Index(string q, string order)
         {
+            
             var name = from n in db.RecruitmentRequests.Include(r => r.Company) select n;
             if (q != null)
             {
@@ -111,9 +112,11 @@ namespace FirstTask_Project.Controllers
 
             if (ModelState.IsValid)
             {
-               
-                MailMessage mail = new MailMessage();
+               // sandeepmaharjan55 @gmail.com
+                  MailMessage mail = new MailMessage();
+                
                 mail.To.Add("sandeepmaharjan55@gmail.com");
+               
                 mail.From = new MailAddress("sandeepmaharjan94@gmail.com");
                 mail.Subject = _objModelMail.Title;
                 string Body = _objModelMail.Description;
@@ -146,7 +149,6 @@ namespace FirstTask_Project.Controllers
                 
                 });
                 db.SaveChanges();
-
                 
 
                 return View(_objModelMail);
@@ -229,6 +231,7 @@ namespace FirstTask_Project.Controllers
                        .Where(c => c.Skills == z)
                        .SelectMany(c => c.PersonToSkills);
                 return View(persontoskill.Include(r => r.Person.Experience).ToList());
+           
             
         }
 

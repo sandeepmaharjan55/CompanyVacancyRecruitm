@@ -127,6 +127,10 @@ namespace FirstTask_Project.Controllers
             var MyViewModel = new PersonsViewModel();
             MyViewModel.PersonId = id.Value;
             MyViewModel.Name = person.Name;
+            MyViewModel.Experience = person.Experience;
+            MyViewModel.Contactno = person.Contactno;
+            MyViewModel.Email = person.Email;
+            
 
 
             var MyCheckBoxList = new List<CheckBoxViewModel>();
@@ -150,6 +154,10 @@ namespace FirstTask_Project.Controllers
             {
                 var Myperson = db.Persons.Find(person.PersonId);
                 Myperson.Name = person.Name;
+                Myperson.Experience = person.Experience;
+                Myperson.Contactno = person.Contactno;
+                Myperson.Email = person.Email;
+
                 foreach (var item in db.PersonToSkills)
                 {
                     if (item.PersonId == person.PersonId)
@@ -160,7 +168,7 @@ namespace FirstTask_Project.Controllers
                 foreach (var item in person.Skills)
                     if (item.Checked)
                     {
-                        db.PersonToSkills.Add(new PersonToSkill() { PersonId = person.PersonId, SkillId = item.Id });
+                        db.PersonToSkills.Add(new PersonToSkill() { PersonId = person.PersonId, SkillId = item.Id  });
 
                     }
                 
