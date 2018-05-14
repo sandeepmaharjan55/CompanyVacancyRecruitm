@@ -110,6 +110,7 @@ namespace FirstTask_Project.Controllers
 
             ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "Name", _objModelMail.CompanyId);
 
+
             if (ModelState.IsValid)
             {
                // sandeepmaharjan55 @gmail.com
@@ -119,7 +120,7 @@ namespace FirstTask_Project.Controllers
                
                 mail.From = new MailAddress("sandeepmaharjan94@gmail.com");
                 mail.Subject = _objModelMail.Title;
-                string Body = _objModelMail.Description;
+                string Body =" Announcing vacancy in " + _objModelMail.Description + " with vacancy seat of " + _objModelMail.NumOfOpening + " with Experience of year " + _objModelMail.Exp + " requested on date " + _objModelMail.RequestDate + " and the deadline is " + _objModelMail.Deadline;
                 mail.Body = Body;
                 mail.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient();
@@ -175,12 +176,12 @@ namespace FirstTask_Project.Controllers
             {
                 // sandeepmaharjan55 @gmail.com
                 MailMessage mail = new MailMessage();
-
+               // mail.To.Add(new MailAddress(_objModelMail.To));
                 mail.To.Add("sandeepmaharjan55@gmail.com");
 
                 mail.From = new MailAddress("sandeepmaharjan94@gmail.com");
                 mail.Subject = _objModelMail.Title;
-                string Body = _objModelMail.Description;
+                string Body = " Announcing vacancy in " +_objModelMail.Description + " with vacancy seat of "+_objModelMail.NumOfOpening + " with Experience of year " +_objModelMail.Exp + " requested on date "+ _objModelMail.RequestDate + " and the deadline is " + _objModelMail.Deadline+". For further details contact";
                 mail.Body = Body;
                 mail.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient();
