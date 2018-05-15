@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using FirstTask_Project.Models;
 using PagedList;
 using PagedList.Mvc;
+using System.IO;
 
 namespace FirstTask_Project.Controllers
 {
@@ -65,17 +66,24 @@ namespace FirstTask_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CompanyId,Name,Email,Phoneno,ContactPerson,CompanyURL,Logo,FacebookURL")] Company company)
+        public ActionResult Create(Company model,HttpPostedFileBase image)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Companies.Add(company);
-                
+                // TODO: Add insert logic here
+                model.Logo = "/images/" + image.FileName;
+                string fullpath = Server.MapPath("~/images/");//for full path
+                image.SaveAs(fullpath + image.FileName);//savin in db
+
+                db.Companies.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            return View(company);
+            catch (Exception)
+            {
+                
+                return View();
+            }
         }
 
         // GET: Companies/Edit/5
@@ -98,15 +106,39 @@ namespace FirstTask_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CompanyId,Name,Email,Phoneno,ContactPerson,CompanyURL,Logo,FacebookURL")] Company company)
+        public ActionResult Edit(int id, Company model, HttpPostedFileBase image)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(company).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                // TODO: Add update logic here
+                if (image != null)
+                {
+
+                    
+
+
+
+                    var oldimg = model.Logo;
+                    model.Logo = "/images/" + image.FileName;
+                    string fullpath = Server.MapPath("~/images/");//for full path
+                    image.SaveAs(fullpath + image.FileName);//savin in db
+                                                            //delete before save
+                    if (System.IO.File.Exists(fullpath + oldimg))
+                    {
+                        System.IO.File.Delete(fullpath + oldimg);
+                    }
+                }
+
+                db.Entry(model).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+
+               
             }
-            return View(company);
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: Companies/Delete/5

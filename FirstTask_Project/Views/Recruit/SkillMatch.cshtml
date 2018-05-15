@@ -2,6 +2,9 @@
 <br/>
 
 <br/>
+
+    
+    
 <div class="pull-left">
     <p>@Html.ActionLink("Send Mail To All", "sendmailtoall", "Recruit", new { @class = "btn btn-primary" })</p>
     </div>
@@ -17,9 +20,12 @@
 
             <th></th>
         </tr>
+     @foreach (var item in Model)
+           {
+               
+              
+             
 
-        @foreach (var item in Model)
-        {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Person.Name)
@@ -29,6 +35,7 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Person.Email)
+
                 </td>
 
                 <td>
@@ -40,8 +47,14 @@
 
 
 
-            </tr>
-        }
 
+               
+</tr>
+            
+         }
+
+
+  
+        
     </table>
     <p>@Html.ActionLink("Back to List", "Index", "Recruit", new { @class = "btn btn-primary" })</p>

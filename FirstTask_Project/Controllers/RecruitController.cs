@@ -139,6 +139,9 @@ namespace FirstTask_Project.Controllers
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(mail);
 
+               
+
+                
                 db.RecruitmentRequests.Add(new RecruitmentRequest
                 {
                     CompanyId = _objModelMail.CompanyId,
@@ -152,7 +155,7 @@ namespace FirstTask_Project.Controllers
                 });
                 db.SaveChanges();
                 
-
+            
                 return View(_objModelMail);
                 
             }
@@ -165,6 +168,7 @@ namespace FirstTask_Project.Controllers
         public ActionResult sendmailtoall()
         {
             ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "Name");
+           
             return View();
         }
         [HttpPost]
@@ -291,16 +295,24 @@ namespace FirstTask_Project.Controllers
 
         public ActionResult SkillMatch(int? id)
         {
-           
 
 
+            
 
-            var rat = db.RecruitmentRequests.Find(id);
+                var rat = db.RecruitmentRequests.Find(id);
             string z = rat.Description;
 
             var persontoskill = db.Skills
                        .Where(c => c.Skills == z)
                        .SelectMany(c => c.PersonToSkills);
+            int count = 0;
+            foreach (var item in persontoskill)
+            {
+                count = count + 1;
+            }
+           
+
+          
 
 
             return View(persontoskill.Include(r => r.Person.Experience).ToList());
