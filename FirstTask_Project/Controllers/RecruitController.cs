@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using FirstTask_Project.Models;
 using System.Net.Mail;
+using System.Data.SqlClient;
 
 namespace FirstTask_Project.Controllers
 {
@@ -177,8 +178,10 @@ namespace FirstTask_Project.Controllers
 
                 for (int i = 1; i < 5; i++)
                 {
-                    // sandeepmaharjan55 @gmail.com
                     MailMessage mail = new MailMessage();
+                   
+                        // sandeepmaharjan55 @gmail.com
+                        
                     // mail.To.Add(new MailAddress(_objModelMail.To));
                     mail.To.Add("sandeepmaharjan55@gmail.com");
 
@@ -298,7 +301,9 @@ namespace FirstTask_Project.Controllers
             var persontoskill = db.Skills
                        .Where(c => c.Skills == z)
                        .SelectMany(c => c.PersonToSkills);
-                return View(persontoskill.Include(r => r.Person.Experience).ToList());
+
+
+            return View(persontoskill.Include(r => r.Person.Experience).ToList());
            
 
 
