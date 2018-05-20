@@ -31,7 +31,14 @@ namespace FirstTask_Project.Controllers
                     {
                         return Redirect(ReturnUrl);
                     }
-                    return Redirect("~/");
+                    if (lvm.Username == "admin" && lvm.Password == "admin")
+                    {
+                        return Redirect("~/admin/AdminIndex/Index");
+                    }
+                    else
+                    {
+                        return Redirect("~/");
+                    }
                 }
                 else
                 {
