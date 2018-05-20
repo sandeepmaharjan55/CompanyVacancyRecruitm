@@ -33,9 +33,9 @@ namespace FirstTask_Project.Controllers
                 case "email":
                     name = name.OrderBy(n => n.Email);
                     break;
-                case "Exp":
-                    name = name.OrderBy(n => n.Experience.ExpYear);
-                    break;
+               // case "Exp":
+                 //   name = name.OrderBy(n => n.Experience.ExpYear);
+                   // break;
                
                 default:
                     name = name.OrderBy(n => n.PersonId);

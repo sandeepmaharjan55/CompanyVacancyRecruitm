@@ -14,6 +14,7 @@ namespace FirstTask_Project.Models
         public DbSet<Company> Companies { get; set; }
         public DbSet<RecruitmentRequest> RecruitmentRequests { get; set; }
         public DbSet<Experience> Experiences { get; set; }
+       
 
     }
 }

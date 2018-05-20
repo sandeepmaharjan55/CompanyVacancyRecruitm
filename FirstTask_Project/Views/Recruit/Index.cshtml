@@ -62,7 +62,7 @@
 
                 </a>
             </th>
-            <th></th>
+            <th> Expire in days</th>
         </tr>
 
         @foreach (var item in Model)
@@ -89,6 +89,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Exp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => (item.Deadline-DateTime.Now).Value.Days)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.RecruitId }, new { @class = "btn btn-default" }) |

@@ -41,11 +41,12 @@
                 Email
             </a>
         </th>
-        <th>
-            <a href="~/Person?order=Exp">
-                ExpYear
-            </a>
-        </th>
+      @* <th>
+        <a href="~/Person?order=Exp">
+            ExpYear
+        </a>
+    </th>
+    *@
         <th></th>
     </tr>
 
@@ -63,9 +64,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.Email)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Experience.ExpYear)
-        </td>
+        @*
+    <td>
+       @Html.DisplayFor(modelItem => item.Experience.ExpYear)
+    </td>
+        *@ 
         <td>
             @Html.ActionLink("Edit", "Edit", "Person", new { id=item.PersonId }, new { @class = "btn btn-default" }) |
             @Html.ActionLink("Details", "Details", "Person", new { id=item.PersonId }, new { @class = "btn btn-default" }) |
