@@ -15,7 +15,7 @@
                 Company Name
             </th>
 
-            <th> Expire in days</th>
+            <th> Expire In</th>
         </tr>
 
         @foreach (var item in Model)
@@ -23,19 +23,30 @@
             <tr>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
+                   @* <a href="@Html.ActionLink("Details", "Details", new { id = item.CompanyId })">*@
+                        <a href="@Url.Action("Details","Recruit", new { id = item.RecruitId })" > 
+                           @Html.DisplayFor(modelItem => item.Title)
+                        </a>
+</td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Company.Name)
-                </td>
+                    <a href="@Url.Action("Details","Companies", new { id = item.CompanyId })">
+                        @Html.DisplayFor(modelItem => item.Company.Name)
+                    </a>
+</td>
 
+               @if (((item.Deadline - DateTime.Now).Value.Days) >= 0)
+               {
                 <td>
-                   
-
-
-                        @Html.DisplayFor(modelItem => (item.Deadline - DateTime.Now).Value.Days)
-                          
+                    @Html.DisplayFor(modelItem => (item.Deadline - DateTime.Now).Value.Days) days
                 </td>
+               }
+               else
+               {
+                <td>
+                    Expired
+                </td>
+               }
+                
 
             </tr>
         }

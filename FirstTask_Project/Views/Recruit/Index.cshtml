@@ -88,11 +88,21 @@
                     @Html.DisplayFor(modelItem => item.Deadline)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Exp)
+                    @Html.DisplayFor(modelItem => item.Exp)+
                 </td>
+@if (((item.Deadline - DateTime.Now).Value.Days) >= 0)
+{
                 <td>
-                    @Html.DisplayFor(modelItem => (item.Deadline-DateTime.Now).Value.Days)
+                    @Html.DisplayFor(modelItem => (item.Deadline - DateTime.Now).Value.Days)
                 </td>
+}
+else
+{
+    <td>
+        Expired
+    </td>
+}
+
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.RecruitId }, new { @class = "btn btn-default" }) |
                     @Html.ActionLink("Details", "Details", new { id = item.RecruitId }, new { @class = "btn btn-default" }) |
