@@ -13,10 +13,30 @@ namespace FirstTask_Project.Controllers
     public class HomeController : Controller
     {
         private MyDbContext db = new MyDbContext();
-        public ActionResult Index()
+        public ActionResult Index(string q, string order)
         {
-           
-            return View(db.RecruitmentRequests.Include(p=>p.Company).ToList());
+            var name = from n in db.RecruitmentRequests select n;
+            if (q != null)
+            {
+                name = name.Where(n => n.Title.Contains(q));
+            }
+            switch (order)
+            {
+                case "title":
+                    name = name.OrderBy(n => n.Title);
+                    break;
+                case "name":
+                    name = name.OrderBy(n => n.Company.Name);
+                    break;
+                case "expire":
+                    name = name.OrderBy(n => n.Exp);
+                    break;
+                default:
+                    name = name.OrderBy(n => n.CompanyId);
+                    break;
+            }
+            return View(name.Include(p => p.Company).ToList());
+           // return View(db.RecruitmentRequests.Include(p=>p.Company).ToList());
         }
 
         public ActionResult About()

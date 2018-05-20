@@ -3,19 +3,35 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="pull-right">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        @Html.TextBox("q", "", new { placeholder = "Search..." });
+
+        <button type="submit" class="btn btn-primary">GO</button>
+
+    }
+</div>
+<br />
 <h2>Available Jobs</h2>
 
 <table  style="width: 50%; height: 150px;" class="gridx dr_list_table">
 
         <tr>
             <th>
-               Job Title
-            </th>
+                <a href="~/Home?order=title">
+                    Job Title
+                    </a>
+</th>
             <th>
-                Company Name
-            </th>
+                <a href="~/Home?order=name">
+                    Company Name
+                    </a>
+</th>
 
-            <th> Expire In</th>
+            <th>
+                <a href="~/Home?order=expire"> Expire In
+                    </a></th>
         </tr>
 
         @foreach (var item in Model)
@@ -23,6 +39,7 @@
             <tr>
 
                 <td>
+
                    @* <a href="@Html.ActionLink("Details", "Details", new { id = item.CompanyId })">*@
                         <a href="@Url.Action("Details","Recruit", new { id = item.RecruitId })" > 
                            @Html.DisplayFor(modelItem => item.Title)

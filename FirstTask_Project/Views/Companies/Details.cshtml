@@ -47,24 +47,32 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CompanyURL)
-        </dd>
+
+            <a href="@Model.CompanyURL">
+                @Html.DisplayFor(model => model.CompanyURL)
+                </a>
+</dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Logo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Logo)
+            <img src="@Model.Logo" height="100" width="100" />
+        
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FacebookURL)
-        </dt>
+          
+                @Html.DisplayNameFor(model => model.FacebookURL)
+                
+</dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FacebookURL)
-        </dd>
+            <a href="@Model.FacebookURL">
+                @Html.DisplayFor(model => model.FacebookURL)
+            </a>
+</dd>
 
     </dl>
 </div>
