@@ -73,7 +73,8 @@ namespace FirstTask_Project.Controllers
         {
             
                 ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "Name");
-                return View();
+            ViewBag.SkillId = new SelectList(db.Skills, "SkillId", "Skills");
+            return View();
             
            
             
@@ -89,7 +90,7 @@ namespace FirstTask_Project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RecruitId,CompanyId,MyProperty,Title,Description,RequestDate,NumOfOpening,Deadline,Exp")] RecruitmentRequest recruitmentRequest)
+        public ActionResult Create([Bind(Include = "RecruitId,CompanyId,SkillId,MyProperty,Title,Description,RequestDate,NumOfOpening,Deadline,Exp")] RecruitmentRequest recruitmentRequest)
         {
             if (ModelState.IsValid)
             {
@@ -296,16 +297,11 @@ namespace FirstTask_Project.Controllers
 
         public ActionResult SkillMatch(int? id)
         {
+              var rat = db.PersonToSkills.Find(id);
 
-
-            
-
-                var rat = db.RecruitmentRequests.Find(id);
-            string z = rat.Description;
-
-            var persontoskill = db.Skills
-                       .Where(c => c.Skills == z)
-                       .SelectMany(c => c.PersonToSkills);
+             var persontoskill = db.PersonToSkills
+                        .Where(c => c.SkillId == id);
+             
             int count = 0;
             foreach (var item in persontoskill)
             {
@@ -313,7 +309,7 @@ namespace FirstTask_Project.Controllers
             }
            
 
-          
+
 
 
             return View(persontoskill.Include(r => r.Person.Experience).ToList());

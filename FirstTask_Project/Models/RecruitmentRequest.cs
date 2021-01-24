@@ -12,7 +12,9 @@ namespace FirstTask_Project.Models
         public int RecruitId { get; set; }
         public Company Company { get; set; }
         public int CompanyId { get; set; }
-        
+        public Skill Skill { get; set; }
+        public int SkillId { get; set; }
+
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime? RequestDate { get; set; }
